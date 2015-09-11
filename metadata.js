@@ -154,11 +154,13 @@ function TopicMapper()
     {
         var topic = new Topic();
         topic.name = rawTopic.TopicName;
-        topic.sizeInBytes = rawTopic.SizeInBytes;
+        topic.sizeInBytes = parseInt(rawTopic.SizeInBytes);
 
         topic.subscriptions = [];
         rawSubscriptions.forEach(function(rawSubscription){
-            topic.subscriptions.push(new SubscriptionMapper().fromRaw(rawSubscription));
+
+            var subscription = new SubscriptionMapper().fromRaw(rawSubscription);
+            topic.subscriptions.push(subscription);
         });
 
         return topic;
@@ -169,8 +171,11 @@ function SubscriptionMapper()
 {
     this.fromRaw = function(rawSubscription)
     {
+        
         var subscription = new Subscription();
         subscription.name = rawSubscription.SubscriptionName;
+        subscription.activeMessageCount = parseInt(rawSubscription.CountDetails['d2p1:ActiveMessageCount']);
+        subscription.deadLetterMessageCount = parseInt(rawSubscription.CountDetails['d2p1:DeadLetterMessageCount']);
         return subscription;
     }
 }
@@ -180,7 +185,7 @@ var overviewQuery = new OverviewQuery(dependencies);
 
 overviewQuery.get(function(overview){
     console.log('overview');
-    console.log(overview);
+    console.log(JSON.stringify(overview, null, 4));
 });
 
 

@@ -1,0 +1,68 @@
+[
+    {
+        "LockDuration": "PT30S",
+        "RequiresSession": "false",
+        "DefaultMessageTimeToLive": "P14D",
+        "DeadLetteringOnMessageExpiration": "false",
+        "DeadLetteringOnFilterEvaluationExceptions": "false",
+        "MessageCount": "67",
+        "MaxDeliveryCount": "10",
+        "EnableBatchedOperations": "false",
+        "Status": "Active",
+        "CreatedAt": "2015-09-09T20:10:13.3394936Z",
+        "UpdatedAt": "2015-09-09T20:10:14.3834064Z",
+        "AccessedAt": "2015-09-10T19:53:03.517Z",
+        "CountDetails": {
+            "d2p1:ActiveMessageCount": "67",
+            "d2p1:DeadLetterMessageCount": "0",
+            "d2p1:ScheduledMessageCount": "0",
+            "d2p1:TransferMessageCount": "0",
+            "d2p1:TransferDeadLetterMessageCount": "0"
+        },
+        "AutoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "EntityAvailabilityStatus": "Available",
+        "_": {
+            "ContentRootElement": "SubscriptionDescription",
+            "id": "https://good-bad-ugly.servicebus.windows.net/notifications/Subscriptions/creator?api-version=2013-07",
+            "title": "creator",
+            "published": "2015-09-09T20:10:13Z",
+            "updated": "2015-09-09T20:10:14Z",
+            "link": ""
+        },
+        "TopicName": "notifications",
+        "SubscriptionName": "creator"
+    },
+    {
+        "LockDuration": "PT30S",
+        "RequiresSession": "false",
+        "DefaultMessageTimeToLive": "P14D",
+        "DeadLetteringOnMessageExpiration": "false",
+        "DeadLetteringOnFilterEvaluationExceptions": "false",
+        "MessageCount": "1",
+        "MaxDeliveryCount": "10",
+        "EnableBatchedOperations": "false",
+        "Status": "Active",
+        "CreatedAt": "2015-09-09T21:07:09.0526155Z",
+        "UpdatedAt": "2015-09-09T21:07:10.0698346Z",
+        "AccessedAt": "2015-09-11T15:09:32.183Z",
+        "CountDetails": {
+            "d2p1:ActiveMessageCount": "1",
+            "d2p1:DeadLetterMessageCount": "0",
+            "d2p1:ScheduledMessageCount": "0",
+            "d2p1:TransferMessageCount": "0",
+            "d2p1:TransferDeadLetterMessageCount": "0"
+        },
+        "AutoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+        "EntityAvailabilityStatus": "Available",
+        "_": {
+            "ContentRootElement": "SubscriptionDescription",
+            "id": "https://good-bad-ugly.servicebus.windows.net/notifications/Subscriptions/processor?api-version=2013-07",
+            "title": "processor",
+            "published": "2015-09-09T21:07:09Z",
+            "updated": "2015-09-09T21:07:10Z",
+            "link": ""
+        },
+        "TopicName": "notifications",
+        "SubscriptionName": "processor"
+    }
+]
