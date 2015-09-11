@@ -170,7 +170,7 @@ function SubscriptionMapper()
     this.fromRaw = function(rawSubscription)
     {
         var subscription = new Subscription();
-        subscription.name = subscription.SubscriptionName;
+        subscription.name = rawSubscription.SubscriptionName;
         return subscription;
     }
 }
