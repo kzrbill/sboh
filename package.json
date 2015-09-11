@@ -10,6 +10,7 @@
   "license": "GNU",
   "dependencies": {
     "azure": "^0.10.6",
+    "express": "^4.13.3",
     "jsonfile": "^2.2.1"
   }
 }
