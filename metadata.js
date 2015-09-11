@@ -33,6 +33,9 @@ response: [object Object]
 // 1. Create API with all current topics and subscriptions, and current messages in quques.
 // 2. Use these to handshake on sockets, to listen for message events by looking at 'monitoring' queues.
 
+
+
+
 function TopicsQuery()
 {
     this.get = function(topicsFoundCallback, errorCallback)
@@ -53,27 +56,86 @@ function TopicsQuery()
     }
 }
 
+function Finalizer()
+{
+    var _totalTasks = 0;
+    var _completeTasksCallCount = 0;
+    var _finallyFunc = function(){}; 
+
+    this.forEach = function(tasks, actionFunc, finallyFunc)
+    {
+        _totalTasks = tasks.length;
+        _finallyFunc = finallyFunc;
+
+        tasks.forEach(function(task){
+            actionFunc(task);
+        });
+    }
+
+    this.completeTask = function()
+    {
+        _completeTasksCallCount++;
+        if (_completeTasksCallCount >= _totalTasks) {
+
+            _finallyFunc();
+            _completeTasksCallCount = 0;
+        }
+    }
+}
+
 function Dependencies()
 {
     this.topicsQuery = new TopicsQuery();
+    this.subscriptionsQuery = new SubscriptionsQuery();
+}
+
+function SubscriptionsQuery()
+{
+    this.get = function(topic, subscriptionsFoundCallback, errorCallback)
+    {
+        serviceBusService.listSubscriptions(topic, function(error, subscriptions, response){
+
+            if (error) {
+                errorCallback(error);
+                return;
+            }
+
+            if(topics)
+            {
+                subscriptionsFoundCallback(subscriptions);
+                return;
+            }
+        });
+    }
 }
 
 function OverviewQuery(dependencies)
 {   
     var topicsQuery = dependencies.topicsQuery;
+    var subscriptionsQuery = dependencies.subscriptionsQuery;
 
     this.get = function(callback)
     {
         topicsQuery.get(function(rawTopics){
 
             var topics = [];
-            rawTopics.forEach(function(rawTopic){
+            var finalizer = new Finalizer();
+            finalalizer.forEach(rawTopics, function(rawTopics){
 
-                var topic = new TopicFactory().fromRaw(rawTopic);
-                topics.push(topic);
+                subscriptionsQuery.get(rawTopic.TopicName, function(rawSubscriptions){
+
+                    var topic = new TopicMapper().fromRaw(rawTopic, rawSubscriptions);
+                    topics.push(topic);
+
+                    finalizer.completeTask();
+                });
+
+            }, function(){ // Final function when all tasks marked as complete
+
+                callback(topics);
             });
 
-            callback(topics);
+            
         });
     }
 }
@@ -82,14 +144,34 @@ function Topic()
 {
 }
 
-function TopicFactory()
+function Subscription()
 {
-    this.fromRaw = function(rawTopic)
+}
+
+function TopicMapper()
+{
+    this.fromRaw = function(rawTopic, rawSubscriptions)
     {
         var topic = new Topic();
         topic.name = rawTopic.TopicName;
         topic.sizeInBytes = rawTopic.SizeInBytes;
+
+        topic.subscriptions = [];
+        rawSubscriptions.forEach(function(rawSubscription){
+            topic.subscriptions.push(new SubscriptionMapper().fromRaw(rawSubscription));
+        });
+
         return topic;
+    }
+}
+
+function SubscriptionMapper()
+{
+    this.fromRaw = function(rawSubscription)
+    {
+        var subscription = new Subscription();
+        subscription.name = subscription.SubscriptionName;
+        return subscription;
     }
 }
 
