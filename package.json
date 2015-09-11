@@ -1,0 +1,15 @@
+{
+  "name": "sbwall",
+  "version": "0.0.0",
+  "description": "Service Bus Wall",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node spec/*.js"
+  },
+  "author": "Will Grange",
+  "license": "GNU",
+  "dependencies": {
+    "azure": "^0.10.6",
+    "jsonfile": "^2.2.1"
+  }
+}

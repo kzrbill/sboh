@@ -1,0 +1,136 @@
+[
+  {
+    "DefaultMessageTimeToLive" : "P14D",
+    "MaxSizeInMegabytes" : "16384",
+    "RequiresDuplicateDetection" : "false",
+    "DuplicateDetectionHistoryTimeWindow" : "PT10M",
+    "EnableBatchedOperations" : "true",
+    "SizeInBytes" : "15314",
+    "FilteringMessagesBeforePublishing" : "false",
+    "IsAnonymousAccessible" : "false",
+    "AuthorizationRules" : {
+      "AuthorizationRule" : [
+        {
+          "ClaimType" : "SharedAccessKey",
+          "ClaimValue" : "None",
+          "Rights" : {
+            "AccessRights" : [
+              "Manage",
+              "Send",
+              "Listen"
+            ]
+          },
+          "CreatedTime" : "2015-09-09T20:08:47.3147802Z",
+          "ModifiedTime" : "2015-09-09T20:08:47.3147802Z",
+          "KeyName" : "Manage",
+          "PrimaryKey" : "PrimaryKey",
+          "SecondaryKey" : "SecondaryKey"
+        },
+        {
+          "ClaimType" : "SharedAccessKey",
+          "ClaimValue" : "None",
+          "Rights" : {
+            "AccessRights" : "Listen"
+          },
+          "CreatedTime" : "2015-09-09T20:08:47.3147802Z",
+          "ModifiedTime" : "2015-09-09T20:08:47.3147802Z",
+          "KeyName" : "Listen",
+          "PrimaryKey" : "PrimaryKey",
+          "SecondaryKey" : "SecondaryKey"
+        },
+        {
+          "ClaimType" : "SharedAccessKey",
+          "ClaimValue" : "None",
+          "Rights" : {
+            "AccessRights" : "Send"
+          },
+          "CreatedTime" : "2015-09-09T20:08:47.3147802Z",
+          "ModifiedTime" : "2015-09-09T20:08:47.3147802Z",
+          "KeyName" : "Send",
+          "PrimaryKey" : "PrimaryKey",
+          "SecondaryKey" : "SecondaryKey"
+        },
+        {
+          "ClaimType" : "SharedAccessKey",
+          "ClaimValue" : "None",
+          "Rights" : {
+            "AccessRights" : [
+              "Send",
+              "Listen"
+            ]
+          },
+          "CreatedTime" : "2015-09-09T20:08:47.3147802Z",
+          "ModifiedTime" : "2015-09-09T20:08:47.3147802Z",
+          "KeyName" : "ListenAndSend",
+          "PrimaryKey" : "PrimaryKey",
+          "SecondaryKey" : "SecondaryKey"
+        }
+      ]
+    },
+    "Status" : "Active",
+    "CreatedAt" : "2015-09-09T20:01:21.473Z",
+    "UpdatedAt" : "2015-09-09T20:08:47.527Z",
+    "AccessedAt" : "2015-09-11T15:09:32.1837061Z",
+    "SupportOrdering" : "false",
+    "CountDetails" : {
+      "d2p1:ActiveMessageCount" : "0",
+      "d2p1:DeadLetterMessageCount" : "0",
+      "d2p1:ScheduledMessageCount" : "0",
+      "d2p1:TransferMessageCount" : "0",
+      "d2p1:TransferDeadLetterMessageCount" : "0"
+    },
+    "SubscriptionCount" : "2",
+    "AutoDeleteOnIdle" : "P10675199DT2H48M5.4775807S",
+    "EntityAvailabilityStatus" : "Available",
+    "_" : {
+      "ContentRootElement" : "TopicDescription",
+      "id" : "https://good-bad-ugly.servicebus.windows.net/notifications?api-version=2013-07",
+      "title" : "notifications",
+      "published" : "2015-09-09T20:01:21Z",
+      "updated" : "2015-09-09T20:08:47Z",
+      "author" : {
+        "name" : "good-bad-ugly"
+      },
+      "link" : ""
+    },
+    "TopicName" : "notifications"
+  },
+  {
+    "DefaultMessageTimeToLive" : "P14D",
+    "MaxSizeInMegabytes" : "16384",
+    "RequiresDuplicateDetection" : "false",
+    "DuplicateDetectionHistoryTimeWindow" : "PT10M",
+    "EnableBatchedOperations" : "true",
+    "SizeInBytes" : "0",
+    "FilteringMessagesBeforePublishing" : "false",
+    "IsAnonymousAccessible" : "false",
+    "AuthorizationRules" : "",
+    "Status" : "Active",
+    "CreatedAt" : "2015-09-11T20:11:17.17Z",
+    "UpdatedAt" : "2015-09-11T20:11:17.8656233Z",
+    "AccessedAt" : "0001-01-01T00:00:00Z",
+    "SupportOrdering" : "false",
+    "CountDetails" : {
+      "d2p1:ActiveMessageCount" : "0",
+      "d2p1:DeadLetterMessageCount" : "0",
+      "d2p1:ScheduledMessageCount" : "0",
+      "d2p1:TransferMessageCount" : "0",
+      "d2p1:TransferDeadLetterMessageCount" : "0"
+    },
+    "SubscriptionCount" : "0",
+    "AutoDeleteOnIdle" : "P10675199DT2H48M5.4775807S",
+    "EntityAvailabilityStatus" : "Available",
+    "_" : {
+      "ContentRootElement" : "TopicDescription",
+      "id" : "https://good-bad-ugly.servicebus.windows.net/some_other_topic?api-version=2013-07",
+      "title" : "some_other_topic",
+      "published" : "2015-09-11T20:11:17Z",
+      "updated" : "2015-09-11T20:11:17Z",
+      "author" : {
+        "name" : "good-bad-ugly"
+      },
+      "link" : ""
+    },
+    "TopicName" : "some_other_topic"
+  }
+]
