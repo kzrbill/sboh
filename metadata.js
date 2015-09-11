@@ -100,7 +100,7 @@ function SubscriptionsQuery()
                 return;
             }
 
-            if(topics)
+            if(subscriptions)
             {
                 subscriptionsFoundCallback(subscriptions);
                 return;
@@ -120,7 +120,7 @@ function OverviewQuery(dependencies)
 
             var topics = [];
             var finalizer = new Finalizer();
-            finalalizer.forEach(rawTopics, function(rawTopics){
+            finalizer.forEach(rawTopics, function(rawTopic){
 
                 subscriptionsQuery.get(rawTopic.TopicName, function(rawSubscriptions){
 
