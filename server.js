@@ -4,6 +4,7 @@ var app = express();
 var Dependencies = require('./queries').Dependencies;
 var OverviewQuery = require('./queries').OverviewQuery;
 
+app.set('json spaces', 4);
 app.get('/', function (req, res) {
 
   var dependencies = new Dependencies();

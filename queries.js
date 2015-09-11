@@ -101,7 +101,11 @@ function OverviewQuery(dependencies)
                     finalizer.completeTask();
                 });
 
-            }, function(){ // Final function when all tasks marked as complete
+            }, function(){ // Finally func
+
+                topics = topics.sort(function(a, b){
+                    return a.created < b.created;
+                });
 
                 callback(topics);
             });
@@ -109,13 +113,8 @@ function OverviewQuery(dependencies)
     }
 }
 
-function Topic()
-{
-}
-
-function Subscription()
-{
-}
+function Topic() {}
+function Subscription(){}
 
 function TopicMapper()
 {
@@ -123,6 +122,7 @@ function TopicMapper()
     {
         var topic = new Topic();
         topic.name = rawTopic.TopicName;
+        topic.created = Date.parse(rawTopic.CreatedAt);
         topic.sizeInBytes = parseInt(rawTopic.SizeInBytes);
 
         topic.subscriptions = [];
@@ -130,6 +130,10 @@ function TopicMapper()
 
             var subscription = new SubscriptionMapper().fromRaw(rawSubscription);
             topic.subscriptions.push(subscription);
+        });
+
+        topic.subscriptions = topic.subscriptions.sort(function(a, b){
+            return a.created < b.created;
         });
 
         return topic;
@@ -142,19 +146,12 @@ function SubscriptionMapper()
     {
         var subscription = new Subscription();
         subscription.name = rawSubscription.SubscriptionName;
+        subscription.created = Date.parse(rawSubscription.CreatedAt);
         subscription.activeMessageCount = parseInt(rawSubscription.CountDetails['d2p1:ActiveMessageCount']);
         subscription.deadLetterMessageCount = parseInt(rawSubscription.CountDetails['d2p1:DeadLetterMessageCount']);
         return subscription;
     }
 }
-
-// var dependencies = new Dependencies();
-// var overviewQuery = new OverviewQuery(dependencies);
-
-// overviewQuery.get(function(overview){
-//     console.log('overview');
-//     console.log(JSON.stringify(overview, null, 4));
-// });
 
 module.exports.Dependencies = Dependencies;
 module.exports.OverviewQuery = OverviewQuery;
