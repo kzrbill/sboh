@@ -1,0 +1,27 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font: 13px Helvetica, Arial; }
+
+
+
+h1 { text-align: center; padding: 40px; padding-bottom: 20px}
+p.intro { font-style: italic; text-align: center; padding-bottom: 40px; color: #999}
+br { clear: both; }
+
+#board {margin: auto; display: block; width: 314px}
+.square { font: 85px Helvetica, Arial; cursor: pointer; }
+.square { -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none; }
+.square { background-color: #000; color: #fff;}
+.square { margin: 2px; width: 100px; height: 100px; text-align: center; float: left;}
+.square:nth-child(3n+1){
+    clear:left
+}
+
+ul#message-output { list-style-type: none; margin: 20px; padding: 0; margin-top: 40px }
+ul#message-output li { padding: 5px 10px; }
+ul#message-output li:nth-child(odd) { background: #f3f3f3; }
+
+form#message-form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+form#message-form input { border: 2px; padding: 10px; margin: 5px; width: 85%; margin-right: .5%; }
+form#message-form button { width: 12%; background: #fff; border: none; padding: 10px; color: #000; }
+
