@@ -4,8 +4,10 @@ var app = express();
 var Dependencies = require('./queries').Dependencies;
 var OverviewQuery = require('./queries').OverviewQuery;
 
+app.use(express.static('public'));
+
 app.set('json spaces', 4);
-app.get('/', function (req, res) {
+app.get('/api', function (req, res) {
 
   var dependencies = new Dependencies();
   var overviewQuery = new OverviewQuery(dependencies);
