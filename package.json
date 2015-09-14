@@ -1,8 +1,8 @@
 {
-  "name": "sbwall",
+  "name": "sboh",
   "version": "0.0.0",
-  "description": "Service Bus Wall",
-  "main": "index.js",
+  "description": "Service bus overview API and UI",
+  "main": "server.js",
   "scripts": {
     "test": "jasmine-node spec/*.js"
   },
@@ -11,6 +11,7 @@
   "dependencies": {
     "azure": "^0.10.6",
     "express": "^4.13.3",
-    "jsonfile": "^2.2.1"
+    "jsonfile": "^2.2.1",
+    "ursa": "^0.8.5"
   }
 }

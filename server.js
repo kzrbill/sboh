@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 
-var Dependencies = require('./queries').Dependencies;
-var OverviewQuery = require('./queries').OverviewQuery;
+var Dependencies = require('./lib/queries').Dependencies;
+var OverviewQuery = require('./lib/queries').OverviewQuery;
 
 app.use(express.static('public'));
 
