@@ -2,13 +2,17 @@
 
 Provides top level information about topics, subscription, active and deadletter messages.
 
-## TODO
+## Features
 
-+ Encrypt connection string
-+ https://gist.github.com/csanz/1181250
++ Config loader deryptes
++ Service bus topic and subscription overview
++ Message counts
 
-+ Graph the SB count
-+ 
+## Backlog
+
++ UI presentation using Freewall, polling API
++ Socket.IO events subscripted to optionally monitor 'monitor' subscriptions .
++ Graph the message count over time.
 
 ## Uses
 
