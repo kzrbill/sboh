@@ -1,9 +1,54 @@
 
 var apiRoot = 'http://localhost:3000'
 
-var Overview = React.createClass({
-    getInitialState: function() {
-        return { overview : [
+
+var Subscription = React.createClass({
+
+    render: function() {
+        return (
+            <div className='subscription'>
+                <h3>{this.props.subscription.name}</h3>
+                <ul>
+                    <li><strong>{this.props.subscription.deadLetterMessageCount}</strong> <span>deadletters</span> </li>
+                    <li><strong>{this.props.subscription.activeMessageCount}</strong> <span>messages</span> </li>
+                </ul>
+            </div>
+        );
+    }
+});
+
+var Topic = React.createClass({
+
+    componentDidMount :function()
+    {   
+        // $(function () {
+        //     var wall = new freewall('.topic');
+        //     wall.fitWidth();
+        // });
+    },
+ 
+    render: function() {
+
+        var subscriptions = this.props.topic.subscriptions.map(
+            function (subscription) {
+            return (
+                <Subscription key={subscription.name} subscription={subscription} />
+            );
+        });
+
+        return (
+            <div className='topic'>
+                <h2>{this.props.topic.name}, bytes: {this.props.topic.sizeInBytes}</h2>
+                <div>
+                    {subscriptions}
+                </div>
+            </div>
+        );
+    }
+});
+
+/*
+return { overview : [
             {
                 "name": "some_other_topic",
                 "created": 1442002277170,
@@ -31,6 +76,11 @@ var Overview = React.createClass({
             }
         ]
     };
+*/
+
+var Overview = React.createClass({
+    getInitialState: function() {
+        return { overview : [] };
     },
     componentDidMount :function()
     {   
@@ -46,16 +96,21 @@ var Overview = React.createClass({
         });
     },
     render: function() {
+
+        var topics = this.state.overview.map(
+            function (topic) {
+            return (
+                <Topic key={topic.name} topic={topic} />
+            );
+        });
+
         return (
           <div className='overview'>
-            <div className='topic'>topic render content</div>
-            <div className='topic'>topic render content</div>
-            <div className='topic'>topic render content</div>
+            {topics}
           </div>
         );
     }
 });
-
 
 React.render(
   <Overview />,
