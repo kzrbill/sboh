@@ -1,7 +1,19 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/** { margin: 0; padding: 0; box-sizing: border-box; }*/
 
 body { font: 13px Helvetica, Arial; }
 
 h1 { text-align: center; padding: 40px; padding-bottom: 20px}
 p.intro { font-style: italic; text-align: center; padding-bottom: 40px; color: #999}
 br { clear: both; }
+
+.overview {
+    width: 80%;
+    margin: auto;
+    background: rgb(135, 0, 135);
+}
+
+.topic {
+    background: rgb(135, 199, 135);
+    width: 320px;
+    height: 320px;
+}

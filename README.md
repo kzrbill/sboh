@@ -13,6 +13,7 @@ Provides top level information about topics, subscription, active and deadletter
 + UI presentation using Freewall, polling API
 + Socket.IO events subscripted to optionally monitor 'monitor' subscriptions .
 + Graph the message count over time.
++ EC2 instance
 
 ## Uses
 

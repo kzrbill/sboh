@@ -36,13 +36,22 @@ var Overview = React.createClass({
     {   
         var overview = this;
 
-        $.get( "apiRoot", function( responseData ) {
+        $.get( "api", function( responseData ) {
             overview.setState({overview: responseData});
+        });
+
+        $(function () {
+            var wall = new freewall('.overview');
+            wall.fitWidth();
         });
     },
     render: function() {
         return (
-          <p>(Overview grid render here)</p>
+          <div className='overview'>
+            <div className='topic'>topic render content</div>
+            <div className='topic'>topic render content</div>
+            <div className='topic'>topic render content</div>
+          </div>
         );
     }
 });
