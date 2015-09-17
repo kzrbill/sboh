@@ -27,8 +27,12 @@ var Subscription = React.createClass({
         });
     },
     render: function() {
+
+        var deadCount = this.props.subscription.deadLetterMessageCount;
+        var className = deadCount > 0 ? 'subscription critical' : 'subscription normal';
+
         return (
-            <div className='subscription'>
+            <div className={className} >
                 <h3>{this.props.subscription.name}</h3>
                 <ul>
                     <li><strong>{this.props.subscription.deadLetterMessageCount}</strong> <span>deadletters</span> </li>
@@ -71,13 +75,13 @@ var Overview = React.createClass({
     {   
         var overview = this;
 
-        function getOverview()
-        {
+        function getOverview() {
             $.get( "api", function( responseData ) {
                 overview.setState({overview: responseData});
             }); 
         }
         
+        getOverview();
         setInterval(function () {getOverview()}, 3000);
     },
     render: function() {

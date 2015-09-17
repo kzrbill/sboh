@@ -58,11 +58,16 @@ h1 {
     border-radius: 5px;
     width: 150px;
     height: 80px;
-    color: rgb(0, 64, 0);
+    color: #006600;
     display: block;
     padding: 5px;
     margin: 5px;
     float: left;
+}
+
+.subscription.critical {
+    background-color: #E60000;
+    color: white;
 }
 
 .subscription h3 {
@@ -89,6 +94,6 @@ ul li
 }
 
 .subscription ul li strong {
-    font-size: 16px;
+    font-size: 22px;
 }
 
