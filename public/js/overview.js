@@ -23,7 +23,7 @@ var Subscription = React.createClass({
     {   
         var component = this;
         socket.on('subscriptionChange', function(subscription){
-            component.setState({subscription: subscription});
+            component.setProps({subscription: subscription});
         });
     },
     render: function() {
@@ -31,8 +31,8 @@ var Subscription = React.createClass({
             <div className='subscription'>
                 <h3>{this.props.subscription.name}</h3>
                 <ul>
-                    <li><strong>{this.state.subscription.deadLetterMessageCount}</strong> <span>deadletters</span> </li>
-                    <li><strong>{this.state.subscription.activeMessageCount}</strong> <span>messages</span> </li>
+                    <li><strong>{this.props.subscription.deadLetterMessageCount}</strong> <span>deadletters</span> </li>
+                    <li><strong>{this.props.subscription.activeMessageCount}</strong> <span>messages</span> </li>
                 </ul>
             </div>
         );
@@ -71,14 +71,14 @@ var Overview = React.createClass({
     {   
         var overview = this;
 
-        $.get( "api", function( responseData ) {
-            overview.setState({overview: responseData});
-        });
-
-        $(function () {
-            var wall = new freewall('.overview');
-            wall.fitWidth();
-        });
+        function getOverview()
+        {
+            $.get( "api", function( responseData ) {
+                overview.setState({overview: responseData});
+            }); 
+        }
+        
+        setInterval(function () {getOverview()}, 3000);
     },
     render: function() {
 
