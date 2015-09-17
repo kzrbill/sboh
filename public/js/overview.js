@@ -1,4 +1,15 @@
 
+
+function formatBytes(bytes,decimals) {
+   if(bytes == 0) return '0 Byte';
+   var k = 1000;
+   var dm = decimals + 1 || 3;
+   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+   var i = Math.floor(Math.log(bytes) / Math.log(k));
+   return (bytes / Math.pow(k, i)).toPrecision(dm) + ' ' + sizes[i];
+}
+
+
 var apiRoot = 'http://localhost:3000'
 
 
@@ -36,9 +47,12 @@ var Topic = React.createClass({
             );
         });
 
+        var size = formatBytes(this.props.topic.sizeInBytes);
+
         return (
             <div className='topic'>
-                <h2>{this.props.topic.name}, bytes: {this.props.topic.sizeInBytes}</h2>
+                <h2><span className='heading'>{this.props.topic.name}</span> <span className='size'>({size})</span></h2>
+                <br />
                 <div>
                     {subscriptions}
                 </div>
@@ -46,37 +60,6 @@ var Topic = React.createClass({
         );
     }
 });
-
-/*
-return { overview : [
-            {
-                "name": "some_other_topic",
-                "created": 1442002277170,
-                "sizeInBytes": 0,
-                "subscriptions": []
-            },
-            {
-                "name": "notifications",
-                "created": 1441828881473,
-                "sizeInBytes": 15314,
-                "subscriptions": [
-                    {
-                        "name": "processor",
-                        "created": 1441832829052,
-                        "activeMessageCount": 1,
-                        "deadLetterMessageCount": 0
-                    },
-                    {
-                        "name": "creator",
-                        "created": 1441829413339,
-                        "activeMessageCount": 67,
-                        "deadLetterMessageCount": 0
-                    }
-                ]
-            }
-        ]
-    };
-*/
 
 var Overview = React.createClass({
     getInitialState: function() {
