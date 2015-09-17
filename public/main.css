@@ -6,6 +6,17 @@ h1 { padding: 20px; padding-bottom: 10px; margin: 0; color: rgb(200, 200, 200);}
 p.intro { font-style: italic; text-align: center; padding-bottom: 40px; color: #999}
 br { clear: both; }
 
+
+h1 {
+    color: rgb(200, 200, 200);
+   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: color: rgb(200, 200, 200);
+   font-weight: bold;
+   font-size: 30px;
+   letter-spacing: 2px;
+}
+
 .overview {
     width: 100%;
     margin: auto;
@@ -13,13 +24,15 @@ br { clear: both; }
 }
 
 .topic {
-    width: 340px;
-    height: 240px;
+    width: 346px;
+    height: 250px;
     float: left;
     margin: 10px;
     padding: 5px;
     color: rgb(135, 199, 135);
     border: 1px solid rgb(135, 199, 135);
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }
 
 .topic h2{
@@ -41,6 +54,8 @@ br { clear: both; }
 .subscription {
     /* background: rgb(0, 64, 0); */
     border: 1px solid rgb(135, 199, 135);
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     width: 150px;
     height: 80px;
     color: rgb(0, 64, 0);
