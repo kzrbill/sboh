@@ -12,6 +12,7 @@ Provides top level information about topics, subscription, active and deadletter
 
 ## Backlog
 
++ Legacy SB support 1.1 - match signatures to legacy azure ib to adaptor, but underneath, use either latest port or legacy SB.
 + Socket.IO events subscripted to optionally monitor 'monitor' subscriptions 
 + UI presentation using Freewall
 + Graph the message count over time.
@@ -23,4 +24,4 @@ Provides top level information about topics, subscription, active and deadletter
 + Socket.IO
 + Freewall
 
-Notes: SB 1.1 - Compatible npm
+

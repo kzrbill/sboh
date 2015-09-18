@@ -63,6 +63,8 @@ h1 {
     padding: 5px;
     margin: 5px;
     float: left;
+    background-color: rgb(235, 250, 235);
+
 }
 
 .subscription.critical {
