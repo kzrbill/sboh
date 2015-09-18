@@ -22,3 +22,5 @@ Provides top level information about topics, subscription, active and deadletter
 + React
 + Socket.IO
 + Freewall
+
+Notes: SB 1.1 - Compatible npm
