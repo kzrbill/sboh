@@ -4,6 +4,7 @@ var express = require('express'),
     http = require('http').Server(app),
     io = require('socket.io')(http);
 
+
 var Dependencies = require('./lib/queries').Dependencies;
 var OverviewQuery = require('./lib/queries').OverviewQuery;
 
@@ -21,6 +22,8 @@ app.get('/api', function (req, res) {
   });
 });
 
+// TODO: start workers to listen to all topics with subscritpion name
+// 'monitoring' and complete messages with a raised event when have.
 
 var usersConnected = 0;
 

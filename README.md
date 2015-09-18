@@ -1,4 +1,4 @@
-# Service Bus Wall
+# SBOh - Service bus overview
 
 Provides top level information about topics, subscription, active and deadletter messages.
 
@@ -7,10 +7,11 @@ Provides top level information about topics, subscription, active and deadletter
 + Config loader deryptes
 + Service bus topic and subscription overview
 + Message counts
++ Polls api to update UI 
++ Critical red subscriptions when we get a deadletter
 
 ## Backlog
 
-+ Polling API
 + Socket.IO events subscripted to optionally monitor 'monitor' subscriptions 
 + UI presentation using Freewall
 + Graph the message count over time.
@@ -21,8 +22,3 @@ Provides top level information about topics, subscription, active and deadletter
 + React
 + Socket.IO
 + Freewall
-
-## Encyption using
-
-https://github.com/quartzjer/ursa
-
