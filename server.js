@@ -3,6 +3,7 @@ var express = require('express'),
     app = express(),
     http = require('http').Server(app),
     io = require('socket.io')(http);
+    
 
 
 var Dependencies = require('./lib/queries').Dependencies;
@@ -27,18 +28,32 @@ app.get('/api', function (req, res) {
 
 var usersConnected = 0;
 
+var EventEmitter = require('events').EventEmitter;
+var eventEmitter = new EventEmitter();
+
 io.on('connection', function(socket){
   
   usersConnected++;
   io.emit('message', 'server says: user connected (' + usersConnected + ')');
+  console.log('client connected');
 
   socket.on('disconnect', function(){
     usersConnected--;
     io.emit('message', 'server says: user disconnected (' + usersConnected + ')');
+    console.log('client disconnected');
+  });
+
+  eventEmitter.on('subscriptionUpdated', function(subscription){
+    io.emit('subscriptionUpdated', subscription);
   });
 });
 
-http.listen(process.env.PORT || 3000, function () {
-    console.log('listening');
+
+// module.exports.startWorkers = startWorkers;
+require('./lib/monitorWorkerFarm').startWorkers(2);
+
+var port = process.env.PORT || 3000;
+http.listen(port, function () {
+    console.log('listening on port ' + port);
 });
 

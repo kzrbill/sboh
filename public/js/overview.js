@@ -22,7 +22,8 @@ var Subscription = React.createClass({
     componentDidMount :function()
     {   
         var component = this;
-        socket.on('subscriptionChange', function(subscription){
+        socket.on('subscriptionUpdated', function(subscription){
+            console.log('subscriptionUpdated');
             component.setProps({subscription: subscription});
         });
     },
